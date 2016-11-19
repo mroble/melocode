@@ -10,10 +10,9 @@ public class LevelManager : MonoBehaviour {
 	public GameObject deathSplosion;
 
 	public int coinCount;
-
 	public AudioSource coinSound;
-
 	public Text coinText;
+	public int currentCoins;
 
 	public Image heart1;
 	public Image heart2;
@@ -46,6 +45,7 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
 		thePlayer = FindObjectOfType<PlayerController> ();
 
+		currentCoins = coinCount;
 		coinText.text = "Words: " + coinCount;
 
 		healthCount = maxHealth;
@@ -63,8 +63,7 @@ public class LevelManager : MonoBehaviour {
 			Respawn ();
 			respawning = true;
 		}
-
-
+			
 	
 	}
 
@@ -77,6 +76,7 @@ public class LevelManager : MonoBehaviour {
 			
 			StartCoroutine ("RespawnCo");
 		} else {
+			
 			levelMusic.Stop ();
 			gameOverMusic.Play ();
 			//levelMusic.volume = levelMusic.volume / 2f;
@@ -98,7 +98,7 @@ public class LevelManager : MonoBehaviour {
 
 		coinCount = 0;
 		coinText.text = "Words: " + coinCount;
-
+	
 		thePlayer.transform.position = thePlayer.respawnPosition;
 
 		thePlayer.gameObject.SetActive (true);
@@ -118,7 +118,7 @@ public class LevelManager : MonoBehaviour {
 		coinText.text = "Words: " + coinCount;
 		coinSound.Play ();
 
-		if (coinCount == 5) {
+		if (coinCount == 4) {
 			levelMusic.Stop ();
 			levelVictoryMusic.Play ();
 			thePlayer.gameObject.SetActive (false);

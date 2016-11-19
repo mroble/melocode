@@ -1,0 +1,14 @@
+<linker>
+	<assembly fullname="Assembly-CSharp">
+		<type fullname="MainMenu">
+			<method name="NewGame"/>
+			<method name="QuitGame"/>
+		</type>
+		<type fullname="GameOver">
+			<method name="Restart"/>
+		</type>
+		<type fullname="LevelVictory">
+			<method name="NewGame"/>
+		</type>
+	</assembly>
+</linker>

@@ -27,10 +27,12 @@ public class ResetOnRespawn : MonoBehaviour {
 	
 	}
 
-	public void ResetObject() {
+
+public void ResetObject() {
 		transform.position = startPosition;
 		transform.rotation = startRotation;
 		transform.localScale = startLocalScale;
+
 
 		if (myRigidbody != null) {
 			myRigidbody.velocity = Vector3.zero;
